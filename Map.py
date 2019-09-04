@@ -4,6 +4,7 @@ import Item
 
 class MyMAP:
     map_capacity = 9
+    start_location = [map_capacity - 1, int(map_capacity / 2)]
     current_location = [map_capacity - 1, int(map_capacity / 2)]
     world = []
 
@@ -12,7 +13,7 @@ class MyMAP:
         items = Item.Item()
         count = 0
         while True:
-            if count >= self.map_capacity / 2:
+            if count >= self.map_capacity:
                 break
             for i in range(0, len(self.world)):
                 for j in range(0, len(self.world)):
@@ -24,10 +25,15 @@ class MyMAP:
                         count += 1
 
     def check_map(self, i, j):
+        if self.map_capacity - 1 == i and int(self.map_capacity / 2) == j:
+            print('Вы в стартовой локации')
         if self.world[i][j]:
             print(f'здесь лежит {self.world[i][j]}')
         else:
             print('Здесь пусто')
+
+    def check_quest(self):
+        print(f'Вам нужно принести 4 золота в стартовую локацию с координатами {self.start_location}')
 
     def step_forward(self):
         self.current_location[0] -= 1

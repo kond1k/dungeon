@@ -13,7 +13,9 @@ class Character:
         print(f'Свободных ячеек {self.bag_capacity}')
 
     def open_bag(self):
-        print(*self.bag.get_name())
+        print('В вашей сумке лежит: ')
+        for i in self.bag:
+            print(i)
 
     def put_in_bag(self, item):
         self.bag.append(item)

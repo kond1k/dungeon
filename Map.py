@@ -35,6 +35,9 @@ class MyMAP:
     def check_quest(self):
         print(f'Вам нужно принести 4 золота в стартовую локацию с координатами {self.start_location}')
 
+    def put_item_out(self, item):
+        self.world[self.current_location[0]][self.current_location[1]] = item
+
     def step_forward(self):
         self.current_location[0] -= 1
         self.check_map(self.current_location[0], self.current_location[1])

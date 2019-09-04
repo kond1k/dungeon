@@ -20,6 +20,12 @@ class Character:
     def put_in_bag(self, item):
         self.bag.append(item)
 
+    def take_out_item(self):
+        for ind, i in enumerate(self.bag, 1):
+            print(ind, i)
+        take_out_ind = int(input('что вы хотит выкинуть? укажите номер \n'))
+        return self.bag.pop(take_out_ind - 1)
+
     def get_name(self):
         return self.name
 
@@ -27,7 +33,7 @@ class Character:
         return [self.po, self.hp, self.int, self.class_name]
 
 
-class Warroir(Character):
+class Warrior(Character):
     po = 60
     hp = 80
     int = 40
